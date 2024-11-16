@@ -7,6 +7,9 @@ import org.springframework.http.HttpStatusCode;
 @AllArgsConstructor
 public enum ExceptionType implements IException {
 
+    GET_BYTES_FILE_FAILED_STORE("""
+                                Could get bytes from file. The temporary store for file "{0}" has failed.\
+                                """, Severity.DEBUG, HttpStatus.NOT_FOUND),
 
     FIND_IMAGE_NOT_FOUND_ID("""
                             Could not find image. Image with id "{0}" does not exist.\

@@ -3,6 +3,7 @@ package rs.raf.student.isleheights.service.image;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.ExtensionMethod;
 import org.springframework.stereotype.Service;
+import rs.raf.student.isleheights.dto.image.ImageCreateDto;
 import rs.raf.student.isleheights.dto.image.ImageGetDto;
 import rs.raf.student.isleheights.exception.ExceptionType;
 import rs.raf.student.isleheights.exception.IsleHeightsException;
@@ -28,6 +29,12 @@ public class ImageService implements IImageService {
         return repository.findById(id)
                          .orElseThrow(() -> new IsleHeightsException(ExceptionType.FIND_IMAGE_NOT_FOUND_ID, id.toString()))
                          .data();
+    }
+
+    @Override
+    public ImageGetDto create(ImageCreateDto createDto) {
+        return repository.save(createDto.mapEntity())
+                         .mapDto();
     }
 
 }
