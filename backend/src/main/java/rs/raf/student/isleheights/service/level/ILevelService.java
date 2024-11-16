@@ -1,5 +1,6 @@
 package rs.raf.student.isleheights.service.level;
 
+import rs.raf.student.isleheights.dto.level.LevelCreateDto;
 import rs.raf.student.isleheights.dto.level.LevelGetDto;
 import rs.raf.student.isleheights.dto.level.LevelThumbnailGetDto;
 
@@ -10,5 +11,7 @@ public interface ILevelService {
     List<LevelThumbnailGetDto> getAll();
 
     LevelGetDto getLevel(String name);
+
+    LevelGetDto create(LevelCreateDto createDto);
 
 }

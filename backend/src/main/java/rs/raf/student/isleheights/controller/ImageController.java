@@ -58,7 +58,7 @@ public class ImageController {
                 throw new IsleHeightsException(ExceptionType.GET_BYTES_FILE_FAILED_STORE, file.getName());
             }
 
-            return new ResponseEntity<>(service.create(new ImageCreateDto(name, type, data)), HttpStatus.OK);
+            return new ResponseEntity<>(service.create(new ImageCreateDto(name, type, data)), HttpStatus.CREATED);
         });
     }
 
