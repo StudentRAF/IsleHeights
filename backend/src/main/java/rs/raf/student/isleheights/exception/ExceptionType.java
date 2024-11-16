@@ -6,6 +6,15 @@ import org.springframework.http.HttpStatusCode;
 
 @AllArgsConstructor
 public enum ExceptionType implements IException {
+
+
+    FIND_IMAGE_NOT_FOUND_ID("""
+                            Could not find image. Image with id "{0}" does not exist.\
+                            """, Severity.DEBUG, HttpStatus.NOT_FOUND),
+
+    FIND_LEVEL_NOT_FOUND_NAME("""
+                              Could not find level. Level with name "{0}" does not exist.\
+                              """, Severity.DEBUG, HttpStatus.NOT_FOUND),
     ;
 
     private final String     pattern;

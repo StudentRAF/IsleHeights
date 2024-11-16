@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.ExtensionMethod;
 import org.springframework.stereotype.Service;
 import rs.raf.student.isleheights.dto.image.ImageGetDto;
+import rs.raf.student.isleheights.exception.ExceptionType;
+import rs.raf.student.isleheights.exception.IsleHeightsException;
 import rs.raf.student.isleheights.mapper.ImageMapper;
 import rs.raf.student.isleheights.repository.IImageRepository;
 
@@ -17,14 +19,14 @@ public class ImageService implements IImageService {
     @Override
     public ImageGetDto getImage(Long id) {
         return repository.findById(id)
-                         .orElseThrow(() -> new RuntimeException("Get Image")) //TODO: Log exception
+                         .orElseThrow(() -> new IsleHeightsException(ExceptionType.FIND_IMAGE_NOT_FOUND_ID, id.toString()))
                          .mapDto();
     }
 
     @Override
     public byte[] getImageData(Long id) {
         return repository.findById(id)
-                         .orElseThrow(() -> new RuntimeException("Get Image Data")) //TODO: Log exception
+                         .orElseThrow(() -> new IsleHeightsException(ExceptionType.FIND_IMAGE_NOT_FOUND_ID, id.toString()))
                          .data();
     }
 
