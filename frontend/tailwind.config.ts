@@ -7,7 +7,13 @@ const config : Config = {
     content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
   	extend: {
-  		borderRadius: {
+			fontFamily: {
+				metamorphous: ['Metamorphous', 'sans-serif'],
+			},
+			gridTemplateColumns: {
+				30: 'repeat(30, minmax(0, 1fr))',
+			},
+			borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
