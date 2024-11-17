@@ -1,5 +1,5 @@
 import IsleHeights from "@/assets/icons/IsleHeights.tsx";
-import {cn} from "@/utils/utils.ts";
+import {cn, Env} from "@/utils/utils.ts";
 import {GameStage, Ground, Island, Map, Terrain, TerrainType} from "@/types/GameTypes.ts";
 import Topology from "@/assets/icons/Topology.tsx";
 import DialogSuccess from "@/components/game/DialogSuccess.tsx";
@@ -33,7 +33,7 @@ const Game = () => {
   const [gameStage, setGameStage]         = useState<GameStage>(GameStage.InProgress);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/v1/levels/${gameParams.level}`)
+    axios.get(`${Env.API_URL}/levels/${gameParams.level}`)
       .then(response => {
         setLevel(response.data);
         setMap(buildMap(response.data));

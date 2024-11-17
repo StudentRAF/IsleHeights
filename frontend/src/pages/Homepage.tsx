@@ -3,12 +3,13 @@ import axios from "axios";
 import {LevelThumbnail} from "@/types/LevelTypes.ts";
 import IsleHeights from "@/assets/icons/IsleHeights.tsx";
 import LevelCard from "@/components/homepage/LevelCard.tsx";
+import {Env} from "@/utils/utils.ts";
 
 const Homepage = () => {
   const [levels, setLevels]   = useState<LevelThumbnail[]>();
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/v1/levels`)
+    axios.get(`${Env.API_URL}/levels`)
       .then(response => {
         setLevels(response.data);
       });
