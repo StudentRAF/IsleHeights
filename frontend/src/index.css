@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border outline-none;
+  }
+
+  :root {
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    @apply min-h-screen bg-neutral-900;
+  }
+
+  body {
+    @apply min-h-screen w-screen overflow-x-hidden text-neutral-100 scrollbar
+    scrollbar-w-2.5 scrollbar-thumb-neutral-700 scrollbar-track-neutral-800 scrollbar-thumb-rounded-full;
+  }
+
+  #root {
+    @apply flex flex-col min-h-screen;
+  }
+
+}
