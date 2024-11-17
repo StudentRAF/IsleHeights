@@ -5,15 +5,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class Configuration {
+public class Configurations {
 
-    @Component
+    @NoArgsConstructor
     @Accessors(fluent = true)
-    @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    @Configuration(Application.BEEN_NAME)
     public static class Application {
+
+        public static final String BEEN_NAME = "configurations.application";
 
         @Getter
         private static String name;
@@ -39,10 +41,12 @@ public class Configuration {
 
     }
 
-    @Component
+    @NoArgsConstructor
     @Accessors(fluent = true)
-    @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    @Configuration(Jwt.BEEN_NAME)
     public static class Jwt {
+
+        public static final String BEEN_NAME = "configurations.jwt";
 
         @Getter
         private static String secret;
@@ -61,17 +65,19 @@ public class Configuration {
 
     }
 
-    @Component
+    @NoArgsConstructor
     @Accessors(fluent = true)
-    @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    @Configuration(Cors.BEEN_NAME)
     public static class Cors {
 
+        public static final String BEEN_NAME = "configurations.cors";
+
         @Getter
-        private static String allowedOrigins;
+        private static String[] allowedOrigins;
         @Getter
-        private static String allowedMethods;
+        private static String[] allowedMethods;
         @Getter
-        private static String allowedHeaders;
+        private static String[] allowedHeaders;
         @Getter
         private static Boolean allowCredentials;
         @Getter
@@ -79,17 +85,17 @@ public class Configuration {
 
         @Value("${isle_heights.cors.allowed-origins}")
         public void setAllowedOrigins(String value) {
-            allowedOrigins = value;
+            allowedOrigins = value.split(",");
         }
 
         @Value("${isle_heights.cors.allowed-methods}")
         public void setAllowedMethods(String value) {
-            allowedMethods = value;
+            allowedMethods = value.split(",");
         }
 
         @Value("${isle_heights.cors.allowed-headers}")
         public void setAllowedHeaders(String value) {
-            allowedHeaders = value;
+            allowedHeaders = value.split(",");
         }
 
         @Value("${isle_heights.cors.allow-credentials}")
