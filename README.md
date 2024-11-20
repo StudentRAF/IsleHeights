@@ -23,19 +23,19 @@ can choose to restart.
 
 <ins><strong>Backend setup:</strong></ins>
 
-Create environment based on your needs:
+Adjust the backend’s configuration by adding environment variables:
 
 ```properties
-ISLEHEIGHTS_DATABASE_JDBC=           #default: postgresql
-ISLEHEIGHTS_DATABASE_HOST=           #default: localhost
-ISLEHEIGHTS_DATABASE_PORT=           #default: 5432
-ISLEHEIGHTS_DATABASE_SCHEME=         #default: isle_heights
-ISLEHEIGHTS_DATABASE_DRIVER=         #default: org.postgresql.Driver
-ISLEHEIGHTS_DATABASE_USERNAME=       #default: root
-ISLEHEIGHTS_DATABASE_PASSWORD=       #default: 
-ISLEHEIGHTS_CORS_ALLOWED_ORIGINS=    #default: http://localhost:5173
-ISLEHEIGHTS_CORS_ALLOWED_METHODS=    #default: GET,POST,PUT,DELETE
-ISLEHEIGHTS_CORS_ALLOWED_HEADERS=    #default: Content-Type,Authorization
+ISLEHEIGHTS_DATABASE_JDBC=        #default: postgresql
+ISLEHEIGHTS_DATABASE_HOST=        #default: localhost
+ISLEHEIGHTS_DATABASE_PORT=        #default: 5432
+ISLEHEIGHTS_DATABASE_SCHEME=      #default: isle_heights
+ISLEHEIGHTS_DATABASE_DRIVER=      #default: org.postgresql.Driver
+ISLEHEIGHTS_DATABASE_USERNAME=    #default: root
+ISLEHEIGHTS_DATABASE_PASSWORD=    #default: 
+ISLEHEIGHTS_CORS_ALLOWED_ORIGINS= #default: http://localhost:5173
+ISLEHEIGHTS_CORS_ALLOWED_METHODS= #default: GET,POST,PUT,DELETE
+ISLEHEIGHTS_CORS_ALLOWED_HEADERS= #default: Content-Type,Authorization
 ```
 
 <ins><strong>Frontend setup:</strong></ins>
@@ -44,8 +44,14 @@ Inside folder `frontend` create env file `.env.local` with structure:
 ```properties
 ISLE_HEIGHTS_API_URL= #http://localhost:8000/api/v1
 ```
-## Technologies
 
+Inside folder `frontend` run command:
+```shell
+npm run dev
+```
+
+## Technologies
+    
 <ins><strong>Database:</strong></ins>
 
 - PostgreSQL
